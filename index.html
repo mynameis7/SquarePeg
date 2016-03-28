@@ -3,11 +3,16 @@
 <head>
 <title>SquarePeg VR WebApp</title>
 <script type="text/javascript" src="javascript/jquery-1.12.2.min.js"></script>
+<style>
+	#video-source {
+		display: hidden;
+	}
+</style>
 </head>
 <body>
 	<div id="message"></div>
 	<input type="file" accept="video/*"/>
-	<video controls="controls" autoplay></video>
+	<video id="video-source" controls="controls" autoplay></video>
 	<script type="text/javascript" src="javascript/VideoUpload.js"></script>
 </body>
 </html>
