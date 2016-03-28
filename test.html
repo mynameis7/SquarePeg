@@ -3,11 +3,25 @@
 <head>
 <title>SquarePeg VR WebApp</title>
 <script type="text/javascript" src="javascript/jquery-1.12.2.min.js"></script>
-<style>
-	#video-source {
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+      body {
+        margin: 0px;
+        overflow: hidden;
+      }
+      #example {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+	  	#video-source {
 		display: none;
 	}
-</style>
+    </style>
+
 </head>
 <body>
 	<div id="message"></div>
@@ -34,7 +48,7 @@
     function init() {
       renderer = new THREE.WebGLRenderer();
       element = renderer.domElement;
-      container = document.getElementById('example');
+      container = document.getElementById('message');
       container.appendChild(element);
 
       effect = new THREE.StereoEffect(renderer);
