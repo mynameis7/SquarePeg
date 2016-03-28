@@ -1,5 +1,4 @@
 (function localFileVideoPlayerInit(win) {
-    inputNode = null;
     var URL = win.URL || win.webkitURL,
         displayMessage = (function displayMessageInit() {
             var node = document.querySelector('#message');
@@ -35,7 +34,7 @@
             videoNode.src = fileURL;
         },
         inputNode = document.querySelector('input');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    console.log(inputNode)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
     if (!URL) {
         displayMessage('Your browser is not ' + 
            '<a href="http://caniuse.com/bloburls">supported</a>!', true);
