@@ -33,7 +33,7 @@
 
             videoNode.src = fileURL;
             console.log(videoNode.src)
-            videoNode.display = "block"
+            videoNode.style.display = "block"
         },
         inputNode = document.querySelector('input');
     if (!URL) {
