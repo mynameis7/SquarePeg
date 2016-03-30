@@ -24,5 +24,7 @@ function is2DFunc(videoElement, frameContext, frame) {
 }
 
 velem.addEventListener("play", function() {
-	velem.is2D = is2DFunc(velem, fcontext, frame);
+	var is2D = is2DFunc(velem, fcontext, frame);
+	console.log(is2D);
+	velem.is2D = is2D;
 })
