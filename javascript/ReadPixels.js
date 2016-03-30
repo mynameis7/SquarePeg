@@ -26,6 +26,10 @@ function is2DFunc(videoElement, frameContext, frame) {
 }
 console.log("adding event listener");
 velem.addEventListener("play", function() {
+	frame.width = velem.scrollWidth;
+	frame.height = velem.scrollHeight;
+	velem.width = velem.scrollWidth;
+	velem.height = velem.scrollHeight;
 	var is2D = is2DFunc(velem, fcontext, frame);
 	console.log(is2D);
 	velem.is2D = is2D;
