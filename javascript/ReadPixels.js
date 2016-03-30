@@ -22,7 +22,7 @@ function is2DFunc(videoElement, frameContext, frame) {
 		return true;
 	return false;
 }
-
+console.log("adding event listener");
 velem.addEventListener("play", function() {
 	var is2D = is2DFunc(velem, fcontext, frame);
 	console.log(is2D);
