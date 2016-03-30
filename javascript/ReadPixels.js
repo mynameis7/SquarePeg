@@ -7,7 +7,7 @@ velem.is2D = false;
 
 function is2DFunc(videoElement, frameContext, frame) {
 	frameContext.drawImage(videoElement, 0, 0, frame.width, frame.height)
-	var idata = frameContext.getImageData();
+	var idata = frameContext.getImageData(0, 0, frame.width, frame.height);
 	var data = idata.data;
 	var count = 0;
 	for(var i = 0; i < data.length; i += 4) {
