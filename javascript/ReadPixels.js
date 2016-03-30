@@ -30,7 +30,8 @@ velem.addEventListener("play", function() {
 	frame.height = velem.scrollHeight;
 	velem.width = velem.scrollWidth;
 	velem.height = velem.scrollHeight;
-	var is2D = is2DFunc(velem, fcontext, frame);
-	console.log(is2D);
-	velem.is2D = is2D;
+	//var is2D = is2DFunc(velem, fcontext, frame);
+	console.log("playing");
+	console.log(frame)
+	//velem.is2D = is2D;
 })
