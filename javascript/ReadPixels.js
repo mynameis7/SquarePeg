@@ -2,6 +2,8 @@ var velem = document.getElementById("video-source");
 var frame = document.createElement("canvas");
 frame.width = velem.scrollWidth;
 frame.height = velem.scrollHeight;
+velem.width = velem.scrollWidth;
+velem.height = velem.scrollHeight;
 var fcontext = frame.getContext("2d");
 velem.is2D = false;
 
