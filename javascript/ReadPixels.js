@@ -3,7 +3,7 @@ var frame = document.createElement("canvas");
 frame.width = velem.scrollWidth;
 frame.height = velem.scrollHeight;
 var fcontext = frame.getContext("2d");
-var is2D = false;
+velem.is2D = false;
 
 function is2DFunc(videoElement, frameContext, frame) {
 	frameContext.drawImage(videoElement, 0, 0, frame.width, frame.height)
@@ -24,5 +24,5 @@ function is2DFunc(videoElement, frameContext, frame) {
 }
 
 velem.addEventListener("play", function() {
-	is2D = is2DFunc(velem, fcontext, frame);
+	velem.is2D = is2DFunc(velem, fcontext, frame);
 })
