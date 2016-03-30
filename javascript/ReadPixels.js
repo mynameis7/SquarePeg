@@ -1,4 +1,4 @@
-var velem = $("video");
+var velem = document.getElementById("video-source");
 var frame = document.createElement("canvas");
 frame.width = velem.scrollWidth;
 frame.height = velem.scrollHeight;
