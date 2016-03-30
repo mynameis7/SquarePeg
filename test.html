@@ -24,10 +24,8 @@
 
 </head>
 <body>
-	<div id="message"></div>
-	<input type="file" accept="video/*"/>
-	<video id="video-source" controls="controls" autoplay></video>
-	<script type="text/javascript" src="javascript/VideoUpload.js"></script>
+
+	<div class="valiantContainer" data-video-src="videos/my-video.mp4"></div>
 	<script src="javascript/three.min.js"></script>
 	<script src="javascript/StereoEffect.js"></script>
 	<script src="javascript/DeviceOrientationControls.js"></script>
@@ -36,9 +34,9 @@
 
 <script type="text/javascript">
 			$(document).ready(function() {
-				$('.message').Valiant360();
+				$('.valiantPhoto').Valiant360();
 			});
-</script>
+		</script>
 
 	
 	
