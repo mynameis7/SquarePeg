@@ -6,7 +6,7 @@ velem.width = velem.scrollWidth;
 velem.height = velem.scrollHeight;
 var fcontext = frame.getContext("2d");
 velem.is2D = false;
-
+console.log(velem);
 function is2DFunc(videoElement, frameContext, frame) {
 	frameContext.drawImage(videoElement, 0, 0, frame.width, frame.height)
 	var idata = frameContext.getImageData(0, 0, frame.width, frame.height);
