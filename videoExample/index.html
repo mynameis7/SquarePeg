@@ -110,7 +110,7 @@
 		var frm = document.createElement("canvas");
 		frm.width = velem.width;
 		frm.height = velem.height;
-		var frameContext = frame.getContext("2d");
+		var frameContext = frm.getContext("2d");
 		frameContext.drawImage(videoElement, 0, 0, frm.width, frm.height)
 		var idata = frameContext.getImageData(0, 0, frm.width, frm.height);
 		var data = idata.data;
