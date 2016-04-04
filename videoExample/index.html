@@ -111,8 +111,6 @@
 	function is2DFunc() {
 		var velem = document.getElementById("video");
 		var frm = document.getElementById("c");
-		console.log(velem);
-		console.log(frm);
 		frm.width = velem.scrollWidth;
 		frm.height = velem.scrollHeight;
 		var frameContext = frm.getContext("2d");
@@ -120,10 +118,11 @@
 		var idata = frameContext.getImageData(0, 0, frm.width, frm.height);
 		var data = idata.data;
 		var count = 0;
+		var r-0, b=0, g=0;
 		for(var i = 0; i < data.length; i += 4) {
-			var r = data[i];
-			var g = data[i+1];
-			var b = data[i+2];
+			r = data[i];
+			g = data[i+1];
+			b = data[i+2];
 			if(r === 0 && g === 0 && b === 0) {
 				count += 1;
 			}
