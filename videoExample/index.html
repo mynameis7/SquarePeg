@@ -108,8 +108,8 @@
 	function getImageData(image) {
 		var canvas = document.createElement('canvas');
 		//var canvas = document.getElementById("c");
-		canvas.width = image.scrollWidth;///20;
-		canvas.height = image.scrollHeight;///20;
+		canvas.width = image.scrollWidth/20;
+		canvas.height = image.scrollHeight/20;
 
 		var context = canvas.getContext('2d');
 		context.drawImage(image, 0, 0, canvas.width, canvas.width);
@@ -123,7 +123,7 @@
 
 
 	function is2DFunc() {
-		//var idata = getImageData(videoTexture.image)
+		var idata = getImageData(videoTexture.image)
 		/*var count = 0;
 		var r=0, b=0, g=0;
 		for(var i = 0; i < data.length; i += 4) {
