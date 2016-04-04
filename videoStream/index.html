@@ -16,30 +16,16 @@
 
 </head>
 <body>
-	<div id="video-container">
-    <!-- Loading Message -->
-    <div id="left-load" class="left">
-      <div id="title-l" class="title">Loading Video...</div>
-      <div id="message-l" class="message hidden">Try WASD + Q/E</div>
-    </div>
-    <div id="right-load" class="right">
-      <div id="title-r" class="title">Loading Video...</div>
-      <div id="message-r" class="message hidden">Try WASD + Q/E</div>
-    </div>
-    <div id="left-play" class="left hidden">
-      <a id="play-l" class="large-play fa fa-play fa-5x"></a>
-    </div>
-    <div id="right-play" class="right hidden">
-      <a id="play-r" class="large-play fa fa-play fa-5x"></a>
-    </div>
 
-    <canvas id="glcanvas">
-      Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
-    </canvas>
-    <video class="hidden" preload="auto" id="video" loop="true" webkit-playsinline crossOrigin="anonymous">
-      <source src="overpass-clip.mp4" type="video/mp4"></sorce>
-      
-    </video>
+
+    <div id="canvas"></div>
+	<canvas id="c"></canvas>
+	<video id="video" autoplay loop>
+	<source src="overpass-clip.mp4" type="video/mp4"></source>
+	Your browser does not support the video element
+	</video>
+	
+	
 		<div id="video-controls" class="hidden">
           <a id="play-pause" class="fa fa-play icon" title="Play"></a>
 
