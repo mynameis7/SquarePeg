@@ -54,6 +54,7 @@
 	
 	var videoTexture = new THREE.VideoTexture(video);
 	videoTexture.minFilter = THREE.LinearFilter;
+	console.log(videoTexture);
 	var videoMaterial = new THREE.MeshBasicMaterial({
 	map: videoTexture
 	});
