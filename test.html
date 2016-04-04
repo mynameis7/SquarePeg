@@ -103,7 +103,7 @@
       );
       texture.wrapS = THREE.RepeatWrapping;
       texture.wrapT = THREE.RepeatWrapping;
-      texture.repeat = new THREE.Vector2(50, 50);
+      texture.repeat = new THREE.Vector2(100, 100);
       texture.anisotropy = renderer.getMaxAnisotropy();
 
       var material = new THREE.MeshPhongMaterial({
@@ -129,7 +129,7 @@
       var height = container.offsetHeight;
 
       camera.aspect = width / height;
-      //camera.updateProjectionMatrix();
+      camera.updateProjectionMatrix();
 
       renderer.setSize(width, height);
       effect.setSize(width, height);
@@ -138,7 +138,7 @@
     function update(dt) {
       resize();
 
-      //camera.updateProjectionMatrix();
+      camera.updateProjectionMatrix();
 
       controls.update(dt);
     }
