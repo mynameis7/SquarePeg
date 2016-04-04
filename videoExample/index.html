@@ -105,18 +105,24 @@
 	}
 
 
+	function getImageData(image) {
+		var canvas = document.createElement('canvas');
+		canvas.width = image.scrollWidth;
+		canvas.height = image.scrollHeight;
+
+		var context = canvas.getContext('2d');
+		context.drawImage(image, 0, 0);
+
+		return context.getImageData(0, 0, image.width, image.height);
+	}
+
+
 
 	var is2D = false;
 
 
 	function is2DFunc() {
-		var velem = document.getElementById("video");
-		var frm = document.getElementById("c");
-		frm.width = velem.scrollWidth;
-		frm.height = velem.scrollHeight;
-		var frameContext = frm.getContext("2d");
-		frameContext.drawImage(velem, 0, 0, frm.width, frm.height)
-		var data = frameContext.getImageData(0, 0, frm.width, frm.height).data;
+		var idata = getImageData(videoTexture.image)
 		/*var count = 0;
 		var r=0, b=0, g=0;
 		for(var i = 0; i < data.length; i += 4) {
