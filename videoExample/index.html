@@ -110,7 +110,7 @@
 	frame.height = velem.height;
 	var fcontext = frame.getContext("2d");
 	var is2D = false;
-
+	console.log(fcontext);
 	function is2DFunc(videoElement, frameContext, frm) {
 		frameContext.drawImage(videoElement, 0, 0, frm.width, frm.height)
 		var idata = frameContext.getImageData(0, 0, frm.width, frm.height);
