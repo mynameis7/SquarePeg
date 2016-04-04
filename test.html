@@ -114,7 +114,7 @@
         map: texture
       });
 
-      var geometry = new THREE.PlaneGeometry(1000,1000,1000);
+      var geometry = new THREE.PlaneGeometry(1000,1000);
 
       var mesh = new THREE.Mesh(geometry, material);
       mesh.rotation.x = -Math.PI / 2;
@@ -127,6 +127,8 @@
     function resize() {
       var width = container.offsetWidth;
       var height = container.offsetHeight;
+	  console.log(width)
+	  console.log(height)
 
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
