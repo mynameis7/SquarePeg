@@ -105,10 +105,10 @@
 
 
 	var is2D = false;
-	var frm = document.createElement("canvas");
+	var frame = document.createElement("canvas");
 
 
-	function is2DFunc() {
+	function is2DFunc(frm) {
 		var velem = document.getElementById("video");
 		console.log(velem);
 		console.log(frm);
@@ -136,7 +136,7 @@
 	function update (dt) {
 		resize();
 		controls.update(dt);
-		is2D = is2DFunc();
+		is2D = is2DFunc(frame);
 	}
 	
 	function render () {
