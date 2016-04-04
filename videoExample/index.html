@@ -103,15 +103,15 @@
 	}
 
 
-	var velem = document.getElementById("video");
-	var frame = document.createElement("canvas");
-	console.log(frame);
-	frame.width = velem.width;
-	frame.height = velem.height;
-	var fcontext = frame.getContext("2d");
+
 	var is2D = false;
-	console.log(fcontext);
-	function is2DFunc(videoElement, frameContext, frm) {
+	function is2DFunc() {
+		var velem = document.getElementById("video");
+		var frm = document.createElement("canvas");
+		console.log(frame);
+		frm.width = velem.width;
+		frm.height = velem.height;
+		var frameContext = frame.getContext("2d");
 		frameContext.drawImage(videoElement, 0, 0, frm.width, frm.height)
 		var idata = frameContext.getImageData(0, 0, frm.width, frm.height);
 		var data = idata.data;
@@ -130,31 +130,31 @@
 	}
 	
 	function update (dt) {
-	resize();
-	controls.update(dt);
-	is2D = is2DFunc(velem, fcontext,frame);
+		resize();
+		controls.update(dt);
+		is2D = is2DFunc();
 	}
 	
 	function render () {
-	effect.render(scene, camera);
+		effect.render(scene, camera);
 	}
 	
 	function animate () {
-	requestAnimationFrame(animate);
-	update(clock.getDelta());
-	render();
+		requestAnimationFrame(animate);
+		update(clock.getDelta());
+		render();
 	}
 	
 	function fullscreen () {
-	if (container.requestFullscreen) {
-	container.requestFullscreen();
-	} else if (container.msRequestFullscreen) {
-	container.msRequestFullscreen();
-	} else if (container.mozRequestFullScreen) {
-	container.mozRequestFullScreen();
-	} else if (container.webkitRequestFullscreen) {
-	container.webkitRequestFullscreen();
-	}
+		if (container.requestFullscreen) {
+		container.requestFullscreen();
+		} else if (container.msRequestFullscreen) {
+		container.msRequestFullscreen();
+		} else if (container.mozRequestFullScreen) {
+		container.mozRequestFullScreen();
+		} else if (container.webkitRequestFullscreen) {
+		container.webkitRequestFullscreen();
+		}
 	}
 	
 	
