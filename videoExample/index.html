@@ -110,6 +110,8 @@
 
 	function is2DFunc() {
 		var velem = document.getElementById("video");
+		console.log(velem);
+		console.log(frm);
 		frm.width = velem.scrollWidth;
 		frm.height = velem.scrollHeight;
 		var frameContext = frm.getContext("2d");
