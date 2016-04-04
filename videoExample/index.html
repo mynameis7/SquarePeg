@@ -106,9 +106,10 @@
 
 
 	function getImageData(image) {
-		var canvas = document.createElement('canvas');
-		canvas.width = image.scrollWidth/10;
-		canvas.height = image.scrollHeight/10;
+		//var canvas = document.createElement('canvas');
+		var canvas = document.getElementById("c");
+		canvas.width = image.scrollWidth/100;
+		canvas.height = image.scrollHeight/100;
 
 		var context = canvas.getContext('2d');
 		context.drawImage(image, 0, 0, canvas.width, canvas.width);
