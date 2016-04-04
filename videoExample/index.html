@@ -106,9 +106,10 @@
 
 	var is2D = false;
 	var velem = document.getElementById("video");
+	var frm = document.createElement("canvas");
+
 	frm.width = velem.scrollWidth;
 	frm.height = velem.scrollHeight;
-	var frm = document.createElement("canvas");
 	var frameContext = frm.getContext("2d");
 
 	function is2DFunc() {
