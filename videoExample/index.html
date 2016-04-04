@@ -111,7 +111,7 @@
 		frm.width = velem.width;
 		frm.height = velem.height;
 		var frameContext = frm.getContext("2d");
-		frameContext.drawImage(videoElement, 0, 0, frm.width, frm.height)
+		frameContext.drawImage(velem, 0, 0, frm.width, frm.height)
 		var idata = frameContext.getImageData(0, 0, frm.width, frm.height);
 		var data = idata.data;
 		var count = 0;
