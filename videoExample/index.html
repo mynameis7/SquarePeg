@@ -105,12 +105,13 @@
 
 
 	var is2D = false;
+	var velem = document.getElementById("video");
+	frm.width = velem.scrollWidth;
+	frm.height = velem.scrollHeight;
+	var frm = document.createElement("canvas");
+	var frameContext = frm.getContext("2d");
+
 	function is2DFunc() {
-		var velem = document.getElementById("video");
-		var frm = document.createElement("canvas");
-		frm.width = velem.scrollWidth;
-		frm.height = velem.scrollHeight;
-		var frameContext = frm.getContext("2d");
 		frameContext.drawImage(velem, 0, 0, frm.width, frm.height)
 		var idata = frameContext.getImageData(0, 0, frm.width, frm.height);
 		var data = idata.data;
@@ -126,8 +127,7 @@
 		if(count/(frm.width * frm.height) >= 0.5)
 			return true;
 		return false;
-		frm.parentNode.removeChild(frm);
-		
+
 	}
 	
 	function update (dt) {
