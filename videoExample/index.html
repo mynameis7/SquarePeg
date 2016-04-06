@@ -113,7 +113,7 @@
 		context.drawImage(image, 0, 0, canvas.width, canvas.width);
 
 		var idata = context.getImageData(0, 0, image.scrollWidth, image.scrollHeight);
-		canvas.parent.removeChild(canvas);
+		console.log(canvas);
 		return idata;
 	}
 
