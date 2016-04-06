@@ -6,7 +6,7 @@
 from flask import Flask, request, redirect, url_for, send_from_directory
 
 # Setup Flask app.
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="")
 app.debug = True
 
 
