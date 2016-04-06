@@ -38,6 +38,7 @@
 	container = document.getElementById('canvas');
 	container.appendChild(element);
 	scene = new THREE.Scene();
+	is2D_update();
 	}
 	
 	var sphere = new THREE.SphereGeometry(500, 60, 40);
@@ -46,7 +47,6 @@
 	var video = document.getElementById('video');
 	function bindPlay () {
 	video.play();
-	is2D_update();
 	document.body.removeEventListener('click', bindPlay);
 	}
 	document.body.addEventListener('click', bindPlay, false);
