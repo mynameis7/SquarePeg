@@ -18,7 +18,7 @@
 <body>
 	<div id="canvas"></div>
 	<video id="video" autoplay loop>
-	<source src="https://dl.dropboxusercontent.com/s/tjg6yghm6h2n14x/squarePegTest%20%281%29.mp4?dl=0" type="video/mp4"></source>
+	<source src="overpass-clip.mp4" type="video/mp4"></source>
 	Your browser does not support the video element
 	</video>
 	
@@ -37,7 +37,8 @@
 	element = renderer.domElement;
 	container = document.getElementById('canvas');
 	container.appendChild(element);
-	scene = new THREE.Scene();
+	scene = new THREE.Scene();	
+	is2D_update();
 	}
 	
 	var sphere = new THREE.SphereGeometry(500, 60, 40);
@@ -46,7 +47,6 @@
 	var video = document.getElementById('video');
 	function bindPlay () {
 	video.play();
-	is2D_update();
 	document.body.removeEventListener('click', bindPlay);
 	}
 	document.body.addEventListener('click', bindPlay, false);
@@ -114,32 +114,35 @@
 		context.drawImage(image, 0, 0, canvas.width, canvas.width);
 
 		var idata = context.getImageData(0, 0, image.scrollWidth, image.scrollHeight);
-		console.log(canvas);
 		return idata;
 	}
 
 
 
-	var is2D = false;
+	var is2D = null;
 
 
 	function is2DFunc() {
-		var idata = getImageData(videoTexture.image);
-		var data = idata.data;
-		var count = 0;
-		var r=0, b=0, g=0;
-		var i = 0, len = data.length;
-		for(i = 0; i < len; i += 4) {
-			r = data[i];
-			g = data[i+1];
-			b = data[i+2];
-			if(r === 0 && g === 0 && b === 0) {
-				count += 1;
+		try{
+			var idata = getImageData(videoTexture.image);
+			var data = idata.data;
+			var count = 0;
+			var r=0, b=0, g=0;
+			var i = 0, len = data.length;
+			for(i = 0; i < len; i += 4) {
+				r = data[i];
+				g = data[i+1];
+				b = data[i+2];
+				if(r === 0 && g === 0 && b === 0) {
+					count += 1;
+				}
 			}
+			if(count/data.length >= 0.5)
+				return true;
+			return false;
+		catch {
+			return null;
 		}
-		if(count/data.length >= 0.5)
-			return true;
-		return false;
 	}
 	
 	function is2D_update() {
