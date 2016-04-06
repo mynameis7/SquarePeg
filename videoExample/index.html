@@ -46,6 +46,7 @@
 	var video = document.getElementById('video');
 	function bindPlay () {
 	video.play();
+	is2D_update();
 	document.body.removeEventListener('click', bindPlay);
 	}
 	document.body.addEventListener('click', bindPlay, false);
@@ -141,10 +142,16 @@
 		return false;
 	}
 	
+	function is2D_update() {
+		is2D = is2DFunc();
+		setTimeout(function() {
+			is2D_update(); 
+		}, 0);
+	}
+
 	function update (dt) {
 		resize();
 		controls.update(dt);
-		is2D = is2DFunc();
 	}
 	
 	function render () {
