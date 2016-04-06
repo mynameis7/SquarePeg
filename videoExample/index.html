@@ -106,14 +106,15 @@
 
 	function getImageData(image) {
 		var canvas = document.createElement('canvas');
-		//var canvas = document.getElementById("c");
 		canvas.width = image.scrollWidth/20;
 		canvas.height = image.scrollHeight/20;
 
 		var context = canvas.getContext('2d');
 		context.drawImage(image, 0, 0, canvas.width, canvas.width);
 
-		return context.getImageData(0, 0, image.scrollWidth, image.scrollHeight);
+		var idata = context.getImageData(0, 0, image.scrollWidth, image.scrollHeight);
+		canvas.parent.removeChild(canvas);
+		return idata;
 	}
 
 
@@ -126,7 +127,8 @@
 		var data = idata.data;
 		var count = 0;
 		var r=0, b=0, g=0;
-		for(var i = 0; i < data.length; i += 4) {
+		var i = 0, len = data.length;
+		for(i = 0; i < len; i += 4) {
 			r = data[i];
 			g = data[i+1];
 			b = data[i+2];
@@ -142,7 +144,7 @@
 	function update (dt) {
 		resize();
 		controls.update(dt);
-		//is2D = is2DFunc();
+		is2D = is2DFunc();
 	}
 	
 	function render () {
