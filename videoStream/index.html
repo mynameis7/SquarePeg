@@ -52,6 +52,8 @@
 	
 	var video = document.getElementById('video');
 	function bindPlay () {
+	video.setAttribute('crossorigin', 'anonymous');
+	video.load();
 	video.play();
 	document.body.removeEventListener('click', bindPlay);
 	}
