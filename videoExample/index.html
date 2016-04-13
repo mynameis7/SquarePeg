@@ -133,11 +133,11 @@
 				r = data[i];
 				g = data[i+1];
 				b = data[i+2];
-				if(r === 0 && g === 0 && b === 0) {
+				if(r < 20 && g < 20 && b < 20) {
 					count += 1;
 				}
 			}
-			console.log("checking:",count/data.length >= 0.25);
+			console.log("checking:",count/data.length >= 0.5);
 			if(count/data.length >= 0.5)
 				return true;
 			return false;
