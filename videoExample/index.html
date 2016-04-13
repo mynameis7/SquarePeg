@@ -21,37 +21,37 @@
 	<source src="squarePeg.mp4" type="video/mp4"></source>
 	Your browser does not support the video element
 	</video>
-	
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
 	<script src="js/third-party/threejs/StereoEffect.js"></script>
 	<script src="js/third-party/threejs/DeviceOrientationControls.js"></script>
 	<script src="js/third-party/threejs/OrbitControls.js"></script>
 	<script src="js/paper.js"></script>
-	
+
 	<script>
 	var clock = new THREE.Clock();
 	init();
-	
+
 	function init() {
 	renderer = new THREE.WebGLRenderer();
 	element = renderer.domElement;
 	container = document.getElementById('canvas');
 	container.appendChild(element);
-	scene = new THREE.Scene();	
+	scene = new THREE.Scene();
 	is2D_update();
 	}
-	
-	var sphere = new THREE.SphereGeometry(500, 60, 40);
+
+	var sphere = new THREE.SphereGeometry(100, 60, 40);
 	sphere.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
-	
+
 	var video = document.getElementById('video');
 	function bindPlay () {
 	video.play();
 	document.body.removeEventListener('click', bindPlay);
 	}
 	document.body.addEventListener('click', bindPlay, false);
-	
-	
+
+
 	var videoTexture = new THREE.VideoTexture(video);
 	videoTexture.minFilter = THREE.LinearFilter;
 	console.log(videoTexture);
@@ -59,14 +59,14 @@
 	map: videoTexture
 	});
 	videoMesh = new THREE.Mesh(sphere, videoMaterial);
-	
-	
+
+
 	effect = new THREE.StereoEffect(renderer);
 	camera = new THREE.PerspectiveCamera(95, 1, 0.001, 700)
-	
+
 	camera.position.set(100, 100, 100);
 	scene.add(camera);
-	
+
 	controls = new THREE.OrbitControls(camera, element);
 	controls.rotateUp(Math.PI / 4);
 	controls.target.set(
@@ -76,8 +76,8 @@
 	);
 	controls.noZoom = true;
 	controls.noPan = true;
-	
-	
+
+
 	function setOrientationControls(e) {
 	if (!e.alpha) {
 	return;
@@ -85,16 +85,16 @@
 	controls = new THREE.DeviceOrientationControls(camera, true);
 	controls.connect();
 	controls.update();
-	
+
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
-	
+
 	window.addEventListener('deviceorientation', setOrientationControls, true);
 
 	scene.add(videoMesh);
 	window.addEventListener('resize', resize, false);
 	animate();
-	
+
 	function resize () {
 	var width = container.offsetWidth;
 	var height = container.offsetHeight;
@@ -147,11 +147,11 @@
 			return null;
 		}
 	}
-	
+
 	function is2D_update() {
 		is2D = is2DFunc();
 		setTimeout(function() {
-			is2D_update(); 
+			is2D_update();
 		}, 0);
 	}
 
@@ -159,17 +159,17 @@
 		resize();
 		controls.update(dt);
 	}
-	
+
 	function render () {
 		effect.render(scene, camera);
 	}
-	
+
 	function animate () {
 		requestAnimationFrame(animate);
 		update(clock.getDelta());
 		render();
 	}
-	
+
 	function fullscreen () {
 		if (container.requestFullscreen) {
 		container.requestFullscreen();
@@ -181,25 +181,25 @@
 		container.webkitRequestFullscreen();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</script>
-	
+
 </body>
 </html>
