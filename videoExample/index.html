@@ -60,7 +60,6 @@
 	});
 	videoMesh = new THREE.Mesh(sphere, videoMaterial);
 
-
 	effect = new THREE.StereoEffect(renderer);
 	camera = new THREE.PerspectiveCamera(95, 1, 0.001, 700)
 
@@ -150,6 +149,13 @@
 
 	function is2D_update() {
 		is2D = is2DFunc();
+		if(is2D) {
+			controls.noRotate = true;
+			camera.lookAt(new THREE.Vector3(0, 0, 0))
+		}
+		else {
+			controls.noRotate = false;
+		}
 		setTimeout(function() {
 			is2D_update();
 		}, 0);
