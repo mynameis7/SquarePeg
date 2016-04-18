@@ -117,7 +117,7 @@
 
 	function is2DFunc() {
 		try{
-			var idata = getImageData(videoTexture.image);
+			var idata = getImageData(video);
 			var data = idata.data;
 			var count = 0;
 			var r=0, b=0, g=0;
@@ -126,7 +126,7 @@
 				r = data[i];
 				g = data[i+1];
 				b = data[i+2];
-				if(r < 2 && g < 2 && b < 2) {
+				if(r < 5 && g < 5 && b < 5) {
 					count += 1;
 				}
 			}
