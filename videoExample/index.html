@@ -142,13 +142,13 @@
 	
 	function is2D_update() {
 		is2D = is2DFunc();
-		controls.noRotate = is2D;
+		/*controls.noRotate = is2D;
 		if(is2D){
 			camera.lookAt(new THREE.Vector3d(0,0,0));
 		}
 		else {
-			
-		}
+
+		}*/
 		setTimeout(function() {
 			is2D_update(); 
 		}, 0);
