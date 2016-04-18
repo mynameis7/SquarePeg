@@ -152,8 +152,10 @@
 			//console.log("controls update");
 			//controls.noRotate = is2D;
 			if(is2D){
-				videoMesh2D.position.set(50, 100, 1000);
-				camera.position.set(100, 100, 1000);
+				if(lastIs2D != is2D) {
+					videoMesh2D.position.set(50, 100, 1000);
+					camera.position.set(100, 100, 1000);
+				}
 			}
 			else {
 				if(lastIs2D != is2D){
