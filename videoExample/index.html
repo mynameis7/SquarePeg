@@ -30,7 +30,7 @@
 	
 	<script>
 	var clock = new THREE.Clock();
-	var renderer = null, element = null, container = null, scene = null;
+	var renderer = null, element = null, container = null, scene = null, scene2D = null;
 	var is2D = null;
 	var imageData = null;
 	init();
@@ -40,11 +40,12 @@
 		container = document.getElementById('canvas');
 		container.appendChild(element);
 		scene = new THREE.Scene();	
+		scene2D = new THREE.Scene();
 	}
 	
 	var sphere = new THREE.SphereGeometry(500, 60, 40);
 	sphere.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
-	
+	var plane = new THREE.PlaneGeometry()
 	var video = document.getElementById('video');
 	function bindPlay () {
 		video.play();
@@ -59,12 +60,13 @@
 		map: videoTexture
 	});
 	var videoMesh = new THREE.Mesh(sphere, videoMaterial);
-
+	var videoMesh2D = new Three.Mesh(plane, videoMaterial);
 	var effect = new THREE.StereoEffect(renderer);
 	var camera = new THREE.PerspectiveCamera(95, 1, 0.001, 700)
 	
 	camera.position.set(100, 100, 100);
 	scene.add(camera);
+	scene2D.add(camera);
 	
 	controls = new THREE.OrbitControls(camera, element);
 	controls.rotateUp(Math.PI / 4);
