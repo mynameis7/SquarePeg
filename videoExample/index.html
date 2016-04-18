@@ -140,6 +140,7 @@
 	}
 	function controls_update() {
 		if(controls && camera){
+			console.log("controls update");
 			controls.noRotate = is2D;
 			if(is2D){
 				camera.lookAt(new THREE.Vector3d(0,0,0));
@@ -154,6 +155,7 @@
 	}
 	function is2D_update() {
 		is2D = is2DFunc();
+		console.log("2d update");
 		setTimeout(function() {
 			is2D_update(); 
 		}, 0);
