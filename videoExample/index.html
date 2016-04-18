@@ -39,7 +39,6 @@
 		container = document.getElementById('canvas');
 		container.appendChild(element);
 		scene = new THREE.Scene();	
-		is2D_update();
 	}
 	
 	var sphere = new THREE.SphereGeometry(500, 60, 40);
@@ -139,16 +138,22 @@
 			return null;
 		}
 	}
-	
+	function controls_update() {
+		if(controls && camera){
+			controls.noRotate = is2D;
+			if(is2D){
+				camera.lookAt(new THREE.Vector3d(0,0,0));
+			}
+			else {
+
+			}
+		}
+		setTimeout(function() {
+			controls_update();
+		}, 0);
+	}
 	function is2D_update() {
 		is2D = is2DFunc();
-		window.controls.noRotate = is2D;
-		if(is2D){
-			window.camera.lookAt(new THREE.Vector3d(0,0,0));
-		}
-		else {
-
-		}
 		setTimeout(function() {
 			is2D_update(); 
 		}, 0);
@@ -180,21 +185,9 @@
 		container.webkitRequestFullscreen();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	controls_update();
+	is2D_update();	
 	
 	
 	
