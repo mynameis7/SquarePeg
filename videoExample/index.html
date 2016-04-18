@@ -191,6 +191,8 @@
 	function update (dt) {
 		resize();
 		controls.update(dt);
+		videoMesh2D.rotation.x += 0.1;
+		videoMesh2D.rotation.y += 0.1;
 	}
 	
 	function render () {
