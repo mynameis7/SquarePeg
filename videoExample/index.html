@@ -32,6 +32,7 @@
 	var clock = new THREE.Clock();
 	var renderer = null, element = null, container = null, scene = null;
 	var is2D = null;
+	var imageData = null;
 	init();
 	function init() {
 		renderer = new THREE.WebGLRenderer();
@@ -102,7 +103,13 @@
 		effect.setSize(width, height);
 	}
 
-
+	function imageData_update() {
+		var velem = document.getElementById("video");
+		imageData = getImageData(velem);
+		setTimeout(function() {
+			imageData_update();
+		}, 0);
+	}
 	function getImageData(image) {
 		var canvas = document.createElement('canvas');
 		canvas.width = image.scrollWidth/20;
@@ -117,9 +124,9 @@
 
 	function is2DFunc() {
 		try{
-			var velem = document.getElementById("video");
-			var idata = getImageData(velem);
-			var data = idata.data;
+			//var velem = document.getElementById("video");
+			//var idata = getImageData(velem);
+			var data = imageData.data;
 			var count = 0;
 			var r=0, b=0, g=0;
 			var i = 0, len = data.length;
@@ -188,9 +195,9 @@
 		container.webkitRequestFullscreen();
 		}
 	}
-
+	imageData_update();
 	controls_update();
-	is2D_update();	
+	is2D_update();
 	
 	
 	
