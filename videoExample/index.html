@@ -44,7 +44,7 @@
 	
 	var sphere = new THREE.SphereGeometry(500, 60, 40);
 	sphere.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
-	var plane = new THREE.PlaneGeometry();
+	var plane = new THREE.PlaneGeometry(160, 90);
 	var video = document.getElementById('video');
 	function bindPlay () {
 		video.play();
