@@ -31,7 +31,7 @@
 	<script>
 	var clock = new THREE.Clock();
 	var renderer = null, element = null, container = null, scene = null;
-	var is2D = null;
+	var is2D = null, lastIs2D = null;
 	var imageData = null;
 	init();
 	function init() {
@@ -44,7 +44,7 @@
 	
 	var sphere = new THREE.SphereGeometry(500, 60, 40);
 	sphere.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
-	var plane = new THREE.PlaneGeometry()
+	var plane = new THREE.PlaneGeometry()\
 	var video = document.getElementById('video');
 	function bindPlay () {
 		video.play();
@@ -60,6 +60,7 @@
 	});
 	var videoMesh = new THREE.Mesh(sphere, videoMaterial);
 	var videoMesh2D = new THREE.Mesh(plane, videoMaterial);
+	videoMesh2D.position = new THREE.Vector3(0, 0, 1000);
 	var effect = new THREE.StereoEffect(renderer);
 	var camera = new THREE.PerspectiveCamera(95, 1, 0.001, 700)
 	
@@ -149,12 +150,21 @@
 	function controls_update() {
 		if(controls && camera){
 			//console.log("controls update");
-			//controls.noRotate = is2D;
+			controls.noRotate = is2D;
 			if(is2D){
-			//	camera.lookAt(new THREE.Vector3(0,0,0));
+				camera.position.set(100, 100, 1000);
 			}
 			else {
-
+				if(lastIs2D != is2D){
+					controls.reset();
+					camera.position.set(100, 100, 100);
+					controls.rotateUp(Math.PI / 4);
+					controls.target.set(
+						camera.position.x + 0.1,
+						camera.position.y,
+						camera.position.z
+					);
+				}
 			}
 		}
 		setTimeout(function() {
@@ -162,6 +172,7 @@
 		}, 0);
 	}
 	function is2D_update() {
+		lastIs2D = is2D;
 		is2D = is2DFunc();
 		//console.log("2d update: ", is2D);
 		setTimeout(function() {
@@ -175,9 +186,6 @@
 	}
 	
 	function render () {
-		if(is2D){
-			
-		}
 		effect.render(scene, camera);
 	}
 	
