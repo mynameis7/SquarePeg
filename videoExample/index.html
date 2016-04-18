@@ -142,10 +142,9 @@
 	
 	function is2D_update() {
 		is2D = is2DFunc();
-		console.log(window.controls);
-		/*controls.noRotate = is2D;
+		window.controls.noRotate = is2D;
 		if(is2D){
-			camera.lookAt(new THREE.Vector3d(0,0,0));
+			window.camera.lookAt(new THREE.Vector3d(0,0,0));
 		}
 		else {
 
