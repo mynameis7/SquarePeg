@@ -18,7 +18,7 @@
 <body>
 	<div id="canvas"></div>
 	<video id="video" autoplay loop>
-	<source src="overpass-clip.mp4" type="video/mp4"></source>
+	<source src="squarePeg.mp4" type="video/mp4"></source>
 	Your browser does not support the video element
 	</video>
 	
@@ -59,7 +59,7 @@
 	map: videoTexture
 	});
 	videoMesh = new THREE.Mesh(sphere, videoMaterial);
-	
+
 	effect = new THREE.StereoEffect(renderer);
 	camera = new THREE.PerspectiveCamera(95, 1, 0.001, 700)
 	
