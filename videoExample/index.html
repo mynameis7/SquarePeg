@@ -126,11 +126,12 @@
 				r = data[i];
 				g = data[i+1];
 				b = data[i+2];
-				if(r === 0 && g === 0 && b === 0) {
+				if(r < 4 && g < 4 && b < 4) {
 					count += 1;
 				}
 			}
-			if(count/data.length >= 0.5)
+			console.log(count, count/data.length);
+			if(count/data.length >= 0.1)
 				return true;
 			return false;
 		}
@@ -140,7 +141,7 @@
 	}
 	function controls_update() {
 		if(controls && camera){
-			console.log("controls update");
+			//console.log("controls update");
 			controls.noRotate = is2D;
 			if(is2D){
 				camera.lookAt(new THREE.Vector3d(0,0,0));
@@ -155,7 +156,7 @@
 	}
 	function is2D_update() {
 		is2D = is2DFunc();
-		console.log("2d update: ", is2D);
+		//console.log("2d update: ", is2D);
 		setTimeout(function() {
 			is2D_update(); 
 		}, 0);
