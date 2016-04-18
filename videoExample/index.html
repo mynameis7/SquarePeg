@@ -175,7 +175,11 @@
 	}
 	
 	function render () {
-		effect.render(scene, camera);
+		var tempScene = scene;
+		if(is2D){
+			tempScene = scene2D;
+		}
+		effect.render(tempScene camera);
 	}
 	
 	function animate () {
