@@ -155,7 +155,8 @@
 	function controls_update() {
 		if(controls && camera){
 			//console.log("controls update");
-			//controls.noRotate = is2D;
+			if(controls.name === "ORBIT")
+				controls.noRotate = is2D;
 			if(is2D){
 				if(lastIs2D != is2D) {
 					videoMesh2D.position.set(0, 0, 1000);
@@ -163,7 +164,8 @@
 					if(controls.name === "ORBIT")
 						controls.target.set(0, 0, 1000);
 					else{
-						controls.disconnect();
+						//controls.disconnect();
+						controls.enabled = false;
 					}
 				}
 			}
@@ -181,8 +183,10 @@
 						);
 					}
 					else {
-						controls.connect();
-						controls.update();
+						//controls.connect();
+						//controls.update();
+						controls.enabled = true;
+
 					}
 				}
 			}
