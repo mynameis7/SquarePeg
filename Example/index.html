@@ -19,8 +19,7 @@
 
 
     <div id="canvas"></div>
-	<canvas id="c"></canvas>
-	<video id="video" autoplay>
+	<video id="video" autoplay loop>
 	<source src="squarePeg.mp4" type="video/mp4"></source>
 	Your browser does not support the video element
 	</video>
@@ -72,7 +71,7 @@
 	var videoMaterial = new THREE.MeshBasicMaterial({
 	map: videoTexture
 	});
-	videoMesh = new THREE.Mesh(sphere, videoMaterial);
+	var videoMesh = new THREE.Mesh(sphere, videoMaterial);
 	
 	var videoMesh2D = new THREE.Mesh(plane, videoMaterial);
 	videoMesh2D.position.set(0, 0, 1000);
@@ -85,7 +84,6 @@
 	
 	controls = new THREE.OrbitControls(camera, element);
 	controls.rotateUp(Math.PI / 4);
-
 	controls.target.set(
 	camera.position.x + 0.1,
 	camera.position.y,
@@ -172,38 +170,38 @@
 			is2D_update(); 
 		}, 0);
 	}
-	/*function controls_update() {
+	function controls_update() {
 		if(controls && camera){
 			//console.log("controls update");
-					}
+			controls.noRotate = is2D;
+			if(is2D){
+				if(lastIs2D != is2D) {
+					videoMesh2D.position.set(0, 0, 1000);
+					camera.position.set(0, 0, 900);
+					controls.target.set(0, 0, 1000);
+				}
+			}
+			else {
+				if(lastIs2D != is2D){
+					controls.reset();
+					camera.position.set(100, 100, 100);
+					controls.rotateUp(Math.PI / 4);
+					controls.target.set(
+						camera.position.x + 0.1,
+						camera.position.y,
+						camera.position.z
+					);
+				}
+			}
+		}
 		setTimeout(function() {
 			controls_update();
 		}, 0);
-	}*/
+	}
 	
 	function update (dt) {
 		resize();
 		controls.update(dt);
-
-		controls.noRotate = is2D;
-		if(is2D){
-			//if(lastIs2D != is2D) {
-				videoMesh2D.position.set(0, 0, 1000);
-				camera.position.set(0, 0, 900);
-				controls.target.set(0, 0, 1000);
-			//}
-		}
-		else {
-			if(lastIs2D != is2D){
-				camera.position.set(100, 100, 100);
-				controls.target.set(
-					camera.position.x + 0.1,
-					camera.position.y,
-					camera.position.z
-				);
-			}
-		}
-
 	}
 	
 	function render () {
@@ -234,6 +232,7 @@
 	
 	is2D_update();
 
+	controls_update();
 
 	
 	
