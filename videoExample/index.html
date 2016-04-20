@@ -162,6 +162,9 @@
 					camera.position.set(0, 0, 900);
 					if(controls.name === "ORBIT")
 						controls.target.set(0, 0, 1000);
+					else{
+						controls.disconnect();
+					}
 				}
 			}
 			else {
@@ -176,6 +179,10 @@
 							camera.position.y,
 							camera.position.z
 						);
+					}
+					else {
+						controls.connect();
+						controls.update();
 					}
 				}
 			}
