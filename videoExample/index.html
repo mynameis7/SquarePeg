@@ -59,7 +59,8 @@
 		map: videoTexture
 	});
 	var videoMesh = new THREE.Mesh(sphere, videoMaterial);
-	var videoMesh2D = new THREE.Mesh(plane, videoMaterial);
+	var videoMesh2D = new THREE.Mesh(plane, videoMaterial);\
+	videoMesh2D.doubleSided = true;
 	videoMesh2D.position = new THREE.Vector3(0, 0, 1000);
 	var effect = new THREE.StereoEffect(renderer);
 	var camera = new THREE.PerspectiveCamera(95, 1, 0.001, 700)
