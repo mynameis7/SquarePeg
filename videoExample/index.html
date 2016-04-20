@@ -78,6 +78,7 @@
 	);
 	controls.noZoom = true;
 	controls.noPan = true;
+	controls.name = "ORBIT";
 	
 	
 	function setOrientationControls(e) {
@@ -87,6 +88,7 @@
 	var controls = new THREE.DeviceOrientationControls(camera, true);
 	controls.connect();
 	controls.update();
+	controls.name = "DEVICE";
 	alert("USING Device Orientation Controls");
 	alert(controls.enabled);
 
