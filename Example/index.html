@@ -185,6 +185,9 @@
 						camera.position.set(0, 0, 900);
 						controls.target.set(0, 0, 1000);
 					}
+					else{
+						controls.disconnect();
+					}
 				}
 			}
 			else {
@@ -199,6 +202,10 @@
 							camera.position.z
 						);
 					}
+					else {
+						controls.connect();
+						controls.update();
+					}
 				}
 			}
 		}
@@ -209,7 +216,12 @@
 	
 	function update (dt) {
 		resize();
-		controls.update(dt);
+		if(!DO){
+			controls.update(dt);
+		}
+		else {
+			controls.update();
+		}
 	}
 	
 	function render () {

@@ -189,7 +189,12 @@
 
 	function update (dt) {
 		resize();
-		controls.update(dt);
+		if(!DO){
+			controls.update(dt);
+		}
+		else{
+			controls.update();
+		}
 
 	}
 	
