@@ -87,7 +87,7 @@
 	var controls = new THREE.DeviceOrientationControls(camera, true);
 	controls.connect();
 	controls.update();
-	
+	alert("USING Device Orientation Controls");
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
 	
@@ -190,7 +190,7 @@
 	function update (dt) {
 		resize();
 		controls.update(dt);
-	
+
 	}
 	
 	function render () {
