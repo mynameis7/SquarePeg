@@ -89,7 +89,7 @@
 	controls.connect();
 	controls.update();
 	controls.name = "DEVICE";
-	alert("USING Device Orientation Controls");
+	alert("USING Device Orientation Controls TESTING");
 
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
@@ -206,7 +206,8 @@
 
 	function update (dt) {
 		resize();
-		controls.update(dt);
+		if(controls.enabled)
+			controls.update(dt);
 		//alert(controls.name);
 	}
 	
