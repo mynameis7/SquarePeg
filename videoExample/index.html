@@ -189,13 +189,8 @@
 
 	function update (dt) {
 		resize();
-		if(!DO){
-			controls.update(dt);
-		}
-		else{
-			controls.update();
-		}
-
+		controls.update(dt);
+	
 	}
 	
 	function render () {
