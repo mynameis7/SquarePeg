@@ -81,6 +81,7 @@
 	
 	var DeviceOrientation = false;
 	function setOrientationControls(e) {
+	alert("device");
 	if (!e.alpha) {
 	return;
 	}
@@ -88,7 +89,7 @@
 	controls.connect();
 	controls.update();
 	DeviceOrientation = true;
-	
+
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
 	
