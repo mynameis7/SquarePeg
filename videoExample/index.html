@@ -85,7 +85,7 @@
 	if (!e.alpha) {
 	return;
 	}
-	var controls = new THREE.DeviceOrientationControls(camera, true);
+	controls = new THREE.DeviceOrientationControls(camera, true);
 	controls.connect();
 	controls.update();
 	controls.name = "DEVICE";
@@ -192,7 +192,7 @@
 	function update (dt) {
 		resize();
 		controls.update(dt);
-		alert(controls.name);
+		//alert(controls.name);
 	}
 	
 	function render () {
