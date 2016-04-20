@@ -39,6 +39,7 @@
 
 	var renderer = null, element = null, container = null, scene = null;
 	var is2D = null, lastIs2D = null;
+	var imageData = null;
 	var clock = new THREE.Clock();
 	init();
 	
@@ -52,7 +53,11 @@
 	
 	var sphere = new THREE.SphereGeometry(500, 60, 40);
 	sphere.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
-	
+	var plane = new THREE.PlaneGeometry(320, 180);
+	plane.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
+
+
+
 	var video = document.getElementById('video');
 	function bindPlay () {
 	video.setAttribute('crossorigin', 'anonymous');
@@ -69,6 +74,8 @@
 	});
 	videoMesh = new THREE.Mesh(sphere, videoMaterial);
 	
+	var videoMesh2D = new THREE.Mesh(plane, videoMaterial);
+	videoMesh2D.position.set(0, 0, 1000);
 	
 	effect = new THREE.StereoEffect(renderer);
 	camera = new THREE.PerspectiveCamera(95, 1, 0.001, 700)
