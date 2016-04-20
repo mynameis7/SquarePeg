@@ -108,6 +108,8 @@
 	window.addEventListener('deviceorientation', setOrientationControls, true);
 
 	scene.add(videoMesh);
+	scene.add(videoMesh2D);
+
 	window.addEventListener('resize', resize, false);
 	animate();
 	
@@ -120,6 +122,13 @@
 	effect.setSize(width, height);
 	}
 
+	function imageData_update() {
+		var velem = document.getElementById("video");
+		imageData = getImageData(velem);
+		setTimeout(function() {
+			imageData_update();
+		}, 0);
+	}
 
 
 
@@ -152,7 +161,8 @@
 	}
 	
 	
-	
+	imageData_update();
+
 	
 	
 	
