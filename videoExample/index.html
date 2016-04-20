@@ -88,11 +88,13 @@
 	controls.connect();
 	controls.update();
 	alert("USING Device Orientation Controls");
+	alert(controls.enabled);
+
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
 	
 	window.addEventListener('deviceorientation', setOrientationControls, true);
-
+	alert(controls);
 	scene.add(videoMesh);
 	scene.add(videoMesh2D);
 	window.addEventListener('resize', resize, false);
