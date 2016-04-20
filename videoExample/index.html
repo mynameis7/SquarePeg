@@ -79,7 +79,7 @@
 	controls.noZoom = true;
 	controls.noPan = true;
 	
-	
+	var DeviceOrientation = false;
 	function setOrientationControls(e) {
 	if (!e.alpha) {
 	return;
@@ -87,6 +87,7 @@
 	var controls = new THREE.DeviceOrientationControls(camera, true);
 	controls.connect();
 	controls.update();
+	DeviceOrientation = true;
 	
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
@@ -164,6 +165,7 @@
 			else {
 				if(lastIs2D != is2D){
 					controls.reset();
+
 					controls.noRotate = is2D;
 					camera.position.set(100, 100, 100);
 					controls.rotateUp(Math.PI / 4);
@@ -172,7 +174,10 @@
 						camera.position.y,
 						camera.position.z
 					);
-
+					if(DeviceOrientation){ 
+						controls.connect();
+						controls.update();
+					}
 				}
 			}
 		}
