@@ -92,7 +92,7 @@
 	controls.noZoom = true;
 	controls.noPan = true;
 	
-	var DO = false;
+	
 	function setOrientationControls(e) {
 	if (!e.alpha) {
 	return;
@@ -100,8 +100,6 @@
 	controls = new THREE.DeviceOrientationControls(camera, true);
 	controls.connect();
 	controls.update();
-	DO = true;
-	alert("DO ON");
 	
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
@@ -175,37 +173,24 @@
 	function controls_update() {
 		if(controls && camera){
 			//console.log("controls update");
-			if(!DO){
-				controls.noRotate = is2D;
-			}
+			//controls.noRotate = is2D;
 			if(is2D){
 				if(lastIs2D != is2D) {
 					videoMesh2D.position.set(0, 0, 1000);
 					camera.position.set(0, 0, 900);
-					if(!DO){
-						controls.target.set(0, 0, 1000);
-					}
-					else{
-						controls.disconnect();
-					}
+					controls.target.set(0, 0, 1000);
 				}
 			}
 			else {
 				if(lastIs2D != is2D){
-					if(!DO){
-						controls.reset();
-						camera.position.set(100, 100, 100);
-						controls.rotateUp(Math.PI / 4);
-						controls.target.set(
-							camera.position.x + 0.1,
-							camera.position.y,
-							camera.position.z
-						);
-					}
-					else {
-						controls.connect();
-						controls.update();
-					}
+					controls.reset();
+					camera.position.set(100, 100, 100);
+					controls.rotateUp(Math.PI / 4);
+					controls.target.set(
+						camera.position.x + 0.1,
+						camera.position.y,
+						camera.position.z
+					);
 				}
 			}
 		}
@@ -247,7 +232,7 @@
 	
 	is2D_update();
 
-	//controls_update();
+	controls_update();
 
 	
 	
