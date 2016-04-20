@@ -101,6 +101,7 @@
 	controls.connect();
 	controls.update();
 	DO = true;
+	alert("DO ON");
 	
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
@@ -179,21 +180,25 @@
 			}
 			if(is2D){
 				if(lastIs2D != is2D) {
-					videoMesh2D.position.set(0, 0, 1000);
-					camera.position.set(0, 0, 900);
-					controls.target.set(0, 0, 1000);
+					if(!DO){
+						videoMesh2D.position.set(0, 0, 1000);
+						camera.position.set(0, 0, 900);
+						controls.target.set(0, 0, 1000);
+					}
 				}
 			}
 			else {
 				if(lastIs2D != is2D){
-					controls.reset();
-					camera.position.set(100, 100, 100);
-					controls.rotateUp(Math.PI / 4);
-					controls.target.set(
-						camera.position.x + 0.1,
-						camera.position.y,
-						camera.position.z
-					);
+					if(!DO){
+						controls.reset();
+						camera.position.set(100, 100, 100);
+						controls.rotateUp(Math.PI / 4);
+						controls.target.set(
+							camera.position.x + 0.1,
+							camera.position.y,
+							camera.position.z
+						);
+					}
 				}
 			}
 		}
