@@ -89,7 +89,7 @@
 	controls.connect();
 	controls.update();
 	controls.name = "DEVICE";
-	alert("USING Device Orientation Controls TESTING 8");
+	alert("USING Device Orientation Controls TESTING 9");
 
 	window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
@@ -164,9 +164,9 @@
 					if(controls.name === "ORBIT")
 						controls.target.set(0, 0, 1000);
 					else{
-						camera.rotation.x = 0;
+						camera.rotation.x = Math.PI;
 						camera.rotation.y = Math.PI;
-						camera.rotation.z = Math.PI;
+						camera.rotation.z = 0;
 						controls.disconnect();
 						controls.enabled = false;
 					}
