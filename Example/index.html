@@ -121,7 +121,17 @@
 	renderer.setSize(width, height);
 	effect.setSize(width, height);
 	}
+	function getImageData(image) {
+		var canvas = document.createElement('canvas');
+		canvas.width = image.scrollWidth/20;
+		canvas.height = image.scrollHeight/20;
 
+		var context = canvas.getContext('2d');
+		context.drawImage(image, 0, 0, canvas.width, canvas.width);
+
+		var idata = context.getImageData(0, 0, canvas.width, canvas.height);
+		return idata;
+	}
 	function imageData_update() {
 		var velem = document.getElementById("video");
 		imageData = getImageData(velem);
